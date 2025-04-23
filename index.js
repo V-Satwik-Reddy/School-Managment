@@ -26,7 +26,7 @@ db.query('SELECT 1 + 1 AS solution', (err, results) => {
 
 app.use(express.json());
 app.use("/addSchool", require("./routes/addSchool"));
-app.use("/listschools", require("./routes/listschools"));
+app.use("/listschools", require("./routes/listSchools"));
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
