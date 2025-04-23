@@ -6,11 +6,9 @@ const db = require('./model');
 const helmet = require('helmet');
 app.use(helmet());
 const cors = require('cors');
-app.use(cors({
-  origin: '*', 
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization'] 
-}));
+app.use(cors());
+const compression = require('compression');
+app.use(compression());
 
 
 
