@@ -6,14 +6,14 @@ router.get("/", (req, res) => {
   const lat = parseFloat(latitude);
   const lon = parseFloat(longitude);
 
-  if (!lat || !lon) {
+  if (!latitude || !longitude) {
     return res.status(400).json({ error: "Latitude and longitude are required." });
     
   }
   if( typeof lat !== 'number' || typeof lon !== 'number'){
     return res.status(400).json({ error: "Latitude and longitude must be numbers." });
   }
-  
+
 
   const query = `
     SELECT *,
