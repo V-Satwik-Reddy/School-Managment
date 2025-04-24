@@ -2,15 +2,13 @@ const router = require('express').Router();
 const db=require('../model');
 router.get("/", (req, res) => {
   const { latitude, longitude } = req.query;
-
+  if (!latitude || !longitude) {
+    return res.status(400).json({ error: "Latitude and longitude are required." });
+  }
   const lat = parseFloat(latitude);
   const lon = parseFloat(longitude);
 
-  if (!latitude || !longitude) {
-    return res.status(400).json({ error: "Latitude and longitude are required." });
-    
-  }
-  if( typeof lat !== 'number' || typeof lon !== 'number'){
+  if( isNaN(lat)|| isNaN(lon)){
     return res.status(400).json({ error: "Latitude and longitude must be numbers." });
   }
 
